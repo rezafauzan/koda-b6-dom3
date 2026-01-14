@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan DOM 3 | Membuat Form Survey Perokok</title>
+</head>
+
+<body>
+    <div id="form-container">
+        <!-- <form>
+            <div>
+                <label for="fullname">Siapa nama anda?</label>
+            </div>
+            <input type="text" id="fullname" name="fullname">
+            <div>
+                <label for="age">Berapa umur anda?</label>
+            </div>
+            <div>
+                <input type="number" id="age" name="age">
+            </div>
+            <div>
+                <label for="gender">Apa jenis kelamin anda?</label>
+            </div>
+            <div>
+                <input type="radio" id="laki-laki" name="gender">
+                <label for="laki-laki">Laki-laki</label>
+                <input type="radio" id="perempuan" name="gender">
+                <label for="perempuan">Perempuan</label>
+            </div>
+            <div>
+                <label for="gender">Apa anda perokok?</label>
+            </div>
+            <div>
+                <input type="radio" id="ya" name="do-u-smoke-n">
+                <label for="ya">Ya</label>
+                <input type="radio" id="tidak" name="do-u-smoke-n">
+                <label for="tidak">Tidak</label>
+            </div>
+            <div>
+                <label>Jika anda perokok, rokok apa yang anda pernah coba?</label>
+            </div>
+            <div>
+                <input type="checkbox" id="gudang" name="rokok">
+                <label for="">Gudang Garam Filter</label>
+            </div>
+            <div>
+                <input type="checkbox" id="lucky" name="rokok">
+                <label for="">Lucky Strike</label>
+            </div>
+            <div>
+                <input type="checkbox" id="marlboro" name="rokok">
+                <label for="">Marlboro</label>
+            </div>
+            <div>
+                <input type="checkbox" id="esse" name="rokok">
+                <label for="">Esse</label>
+            </div>
+            <div>
+                <button type="submit">Kirim!</button>
+                <button type="reset">Reset!</button>
+            </div>
+        </form> -->
+    </div>
+
+    <script>
+        const formContainer = document.getElementById("form-container")
+
+        // <label for="">Esse</label>
+        function buatElement(element, attribute = [['','']], content, parrent){
+            if(typeof parrent === "object"){
+                const e = document.createElement(element)
+                console.log(e + " Element Dibuat")
+                
+                if(attribute.length > 0){
+                    attribute.forEach(
+                        item => {
+                            e.setAttribute(item[0], item[1])
+                            console.log(item[0] + item[1] + "ditambahkan")
+                        }
+                    )
+                }
+                
+                if(typeof content === "string"){
+                    const textNode = document.createTextNode(content)
+                    e.appendChild(textNode)
+                    console.log(textNode + " ditambahkan menjadi text")
+                } else if(typeof content === 'undefined'){
+                    console.log("tanpa content")
+                } else{
+                    e.appendChild(content)
+                    console.log(content + " ditambahkan")
+                }
+                
+                parrent.appendChild(e)
+                console.log(e + " baru ditambahkan ke " + parrent)
+                return e
+            }
+            else{
+                console.log(parrent + " Bukan Object")
+            }
+        }
+
+        const form = buatElement("form", [], undefined, formContainer)
+        
+        // nama
+        const div0 = buatElement('div', [], undefined , form)
+        const labelNama = buatElement('label', [['for','fullname']], "Siapa nama anda?", div0)
+        const inputNama = buatElement('input', [['type','text'],['id','fullname'], ['name','fullname'], ['placeholder', 'Masukan nama anda']], undefined, form)
+        
+        // umur
+        const div1 = buatElement('div', [], undefined , form)
+        const labelUmur = buatElement('label', [['for','age']], "Berapa umur anda?", div1)
+        const inputUmur = buatElement('input', [['type','number'],['id','age'], ['name','age'], ['placeholder', 'Masukan umur anda']], undefined, form)
+        
+        // gender
+        const div2 = buatElement('div', [], undefined , form)
+        const labelGender = buatElement('label', [], "Apa jenis kelamin anda?", div2)
+        const inputGenderL = buatElement('input', [['type','radio'],['id','r-lakilaki'], ['name','gender']], undefined, form)
+        const labelGenderL = buatElement('label', [['for','r-lakilaki']], "Laki-laki", form)
+        const inputGenderP = buatElement('input', [['type','radio'],['id','r-perempuan'], ['name','gender']], undefined, form)
+        const labelGenderP = buatElement('label', [['for','r-perempuan']], "Perempuan", form)
+        
+        // isPerokok
+        const div3 = buatElement('div', [], undefined , form)
+        const labelIsPerokok = buatElement('label', [], "Apakah anda perokok?", div3)
+        const inputGenderY = buatElement('input', [['type','radio'],['id','r-yes'], ['name','isPerokok']], undefined, form)
+        const labelGenderY = buatElement('label', [['for','r-yes']], "Ya", form)
+        const inputGenderN = buatElement('input', [['type','radio'],['id','r-no'], ['name','isPerokok']], undefined, form)
+        const labelGenderN = buatElement('label', [['for','r-no']], "Tidak", form)
+        
+        // isPerokok
+        const div4 = buatElement('div', [], undefined , form)
+        const labelPerokokTrue = buatElement('label', [], "Jika anda perokok, rokok apa yang pernah anda coba?", div4)
+
+        // gudang garam
+        const checkboxGudanGaram = buatElement('input', [['type','checkbox'],['id','gudang-garam'], ['name','merk']], undefined, form)
+        const labelCheckboxGudanGaram = buatElement('label', [['for','gudang-garam']], "Gudang Garam", form)
+        // marlboro
+        const checkboxMarlboro = buatElement('input', [['type','checkbox'],['id','marlboro'], ['name','merk']], undefined, form)
+        const labelCheckboxMarlboro = buatElement('label', [['for','marlboro']], "Marlboro", form)
+        // esse
+        const checkboxEsse = buatElement('input', [['type','checkbox'],['id','esse'], ['name','merk']], undefined, form)
+        const labelCheckboxEsse = buatElement('label', [['for','esse']], "Esse", form)
+        // esse
+        const checkboxLuckyStrike = buatElement('input', [['type','checkbox'],['id','lucky-strike'], ['name','merk']], undefined, form)
+        const labelCheckboxLuckyStrike = buatElement('label', [['for','lucky-strike']], "Lucky Strike", form)
+
+        // Button
+        const buttonSubmit = buatElement('button', [['type','submit']], "Submit", form)
+        const buttonReset = buatElement('button', [['type','reset']], "Reset", form)
+    </script>
+</body>
+
+</html>
