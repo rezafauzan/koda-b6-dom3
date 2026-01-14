@@ -133,19 +133,23 @@
         // isPerokok
         const div4 = buatElement('div', [], undefined , form)
         const labelPerokokTrue = buatElement('label', [], "Jika anda perokok, rokok apa yang pernah anda coba?", div4)
-
+        
         // gudang garam
-        const checkboxGudanGaram = buatElement('input', [['type','checkbox'],['id','gudang-garam'], ['name','merk']], undefined, form)
-        const labelCheckboxGudanGaram = buatElement('label', [['for','gudang-garam']], "Gudang Garam", form)
+        const div5 = buatElement('div', [], undefined , form)
+        const checkboxGudanGaram = buatElement('input', [['type','checkbox'],['id','gudang-garam'], ['name','merk']], undefined, div5)
+        const labelCheckboxGudanGaram = buatElement('label', [['for','gudang-garam']], "Gudang Garam", div5)
         // marlboro
-        const checkboxMarlboro = buatElement('input', [['type','checkbox'],['id','marlboro'], ['name','merk']], undefined, form)
-        const labelCheckboxMarlboro = buatElement('label', [['for','marlboro']], "Marlboro", form)
+        const div6 = buatElement('div', [], undefined , form)
+        const checkboxMarlboro = buatElement('input', [['type','checkbox'],['id','marlboro'], ['name','merk']], undefined, div6)
+        const labelCheckboxMarlboro = buatElement('label', [['for','marlboro']], "Marlboro", div6)
         // esse
-        const checkboxEsse = buatElement('input', [['type','checkbox'],['id','esse'], ['name','merk']], undefined, form)
-        const labelCheckboxEsse = buatElement('label', [['for','esse']], "Esse", form)
-        // esse
-        const checkboxLuckyStrike = buatElement('input', [['type','checkbox'],['id','lucky-strike'], ['name','merk']], undefined, form)
-        const labelCheckboxLuckyStrike = buatElement('label', [['for','lucky-strike']], "Lucky Strike", form)
+        const div7 = buatElement('div', [], undefined , form)
+        const checkboxEsse = buatElement('input', [['type','checkbox'],['id','esse'], ['name','merk']], undefined, div7)
+        const labelCheckboxEsse = buatElement('label', [['for','esse']], "Esse", div7)
+        // lucky strike
+        const div8 = buatElement('div', [], undefined , form)
+        const checkboxLuckyStrike = buatElement('input', [['type','checkbox'],['id','lucky-strike'], ['name','merk']], undefined, div8)
+        const labelCheckboxLuckyStrike = buatElement('label', [['for','lucky-strike']], "Lucky Strike", div8)
 
         // Button
         const buttonSubmit = buatElement('button', [['type','submit']], "Submit", form)
